@@ -38,12 +38,9 @@ submit_date.addEventListener("click", function(){
                 .then(function(resultats){
 
                     resultats.forEach(resultat => {
-                        console.log(resultat)
+
                         let date_debut_reservation = new Date(resultat.date_start); // Pour calculer des dates nous sommes apprement obligé de les transformer en objet
                         let date_fin_reservation = new Date(resultat.date_end);
-
-                        console.log(date_debut_reservation)
-                        console.log(date_fin_reservation)
 
                         if(start_value.getTime() < date_debut_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() < date_fin_reservation.getTime() || start_value.getTime() > date_debut_reservation.getTime() && start_value.getTime() < date_fin_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() > date_fin_reservation.getTime() || start_value.getTime() > date_debut_reservation.getTime() && start_value.getTime() < date_fin_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() < date_fin_reservation.getTime() || start_value.getTime() === date_debut_reservation.getTime() && end_value.getTime() === date_fin_reservation.getTime() || start_value.getTime() < date_debut_reservation.getTime() && end_value.getTime() > date_fin_reservation.getTime()){
                             aff_resultat.innerHTML = "";
@@ -56,8 +53,6 @@ submit_date.addEventListener("click", function(){
                             document.querySelector('#validation').innerHTML = "Les dates demandées sont disponibles."
                         }
                     });
-                    console.log(start_value)
-                    console.log(end_value)
                 })
             }
         
