@@ -1,0 +1,70 @@
+-- Insérer des adresses pour les hôtels
+INSERT INTO adresse (rue, ville, cp, numero) VALUES 
+('Batcave Street', 'Gotham', 12345, 1), -- Batcave
+('Rue des Cathédrales', 'Paris', 75000, 10), -- Cathédrale
+('Big Kids Avenue', 'Toyland', 54321, 20), -- Chambres d'enfant immenses
+('Treehouse Lane', 'Greenwood', 98765, 30), -- Dans un arbre géant
+('Abyss Street', 'Atlantis', 54321, 40), -- Sous l'eau
+('Cliffside Drive', 'Vertigo', 13579, 50), -- Sur une grande falaise
+('Space Boulevard', 'Galaxy', 24680, 60), -- Dans l'espace
+('Volcano Road', 'Magma', 97531, 70), -- Au milieu d'un volcan
+('Iceberg Avenue', 'Glacier', 86420, 80), -- Dans un iceberg
+('Cloud Street', 'Skytopia', 12346, 90); -- Sur un nuage
+
+-- Insérer des chambres
+INSERT INTO chambre (nom, description) VALUES 
+('Chambre de la Batcave', 'Chambre inspirée par la Batcave de Batman'),
+('Chambre de la Cathédrale', 'Chambre offrant une vue imprenable sur les toits de Paris'),
+('Chambre Big Kids', 'Une chambre spacieuse remplie de jouets pour les enfants'),
+('Chambre dans un arbre', 'Chambre perchée dans les branches d\'un arbre géant'),
+('Chambre sous-marine', 'Chambre avec vue sur les merveilles de l\'océan'),
+('Chambre Cliffside', 'Chambre offrant des panoramas spectaculaires sur la falaise'),
+('Chambre spatiale', 'Chambre futuriste flottant dans l\'espace'),
+('Chambre volcanique', 'Chambre avec vue sur le paysage volcanique'),
+('Chambre de glace', 'Chambre offrant une expérience glacée dans un iceberg'),
+('Chambre céleste', 'Chambre magique perchée sur un nuage'),
+('Chambre de la Batcave Deluxe', 'Chambre luxueuse avec équipements high-tech inspirés par Batman'),
+('Chambre Renaissance', 'Chambre décorée dans un style Renaissance avec des touches artistiques'),
+('Chambre Jungle', 'Chambre avec une décoration inspirée de la jungle luxuriante'),
+('Chambre Nautique', 'Chambre avec un thème nautique et une vue sur l\'océan'),
+('Chambre Panoramique', 'Chambre offrant une vue panoramique sur la ville'),
+('Chambre Extraterrestre', 'Chambre avec un design extraterrestre et des lumières fluorescentes'),
+('Chambre Lave', 'Chambre avec un décor ressemblant à de la lave en fusion'),
+('Chambre de Cristal', 'Chambre avec des éléments de cristal et une ambiance étincelante'),
+('Chambre Igloo', 'Chambre confortable avec un design intérieur semblable à un igloo'),
+('Chambre Arc-en-ciel', 'Chambre colorée avec un thème arc-en-ciel');
+
+-- Insérer des hôtels
+INSERT INTO hotel (nom, id_adresse, description, description_full) VALUES 
+('Hôtel Batcave', 1, 'Hôtel secret inspiré de la Batcave de Batman', 'Un hôtel secret niché dans les profondeurs de Gotham City, inspiré de la Batcave légendaire de Batman.'),
+('Hôtel Cathédrale', 2, 'Hôtel majestueux à Paris', 'Un hôtel majestueux situé au cœur de Paris, rappelant la grandeur et la beauté des cathédrales gothiques.'),
+('Hôtel Big Kids', 3, 'Hôtel pour les enfants', 'Un paradis pour les enfants avec des chambres immenses remplies de jouets et de merveilles.'),
+('Hôtel Treehouse', 4, 'Hôtel perché dans les arbres', 'Un refuge paisible perché dans les branches d\'un arbre géant, offrant une expérience unique en pleine nature.'),
+('Hôtel Subaquatique', 5, 'Hôtel sous-marin de luxe', 'Un hôtel luxueux immergé dans les profondeurs de l\'océan, offrant une vue spectaculaire sur la vie marine.'),
+('Hôtel Cliffside', 6, 'Hôtel sur une falaise', 'Un hôtel perché au sommet d\'une falaise vertigineuse, offrant des panoramas à couper le souffle sur l\'horizon.'),
+('Hôtel Spatiale', 7, 'Hôtel futuriste dans l\'espace', 'Un hôtel futuriste flottant dans l\'espace, offrant une expérience interstellaire inoubliable.'),
+('Hôtel Volcanique', 8, 'Hôtel au cœur d\'un volcan', 'Un hôtel audacieux construit au cœur d\'un volcan actif, offrant des vues à couper le souffle sur le paysage volcanique.'),
+('Hôtel Iceberg', 9, 'Hôtel isolé dans un iceberg', 'Un hôtel isolé niché au cœur d\'un iceberg, offrant une retraite glacée dans un paysage polaire spectaculaire.'),
+('Hôtel Céleste', 10, 'Hôtel sur un nuage', 'Un hôtel enchanté perché sur un nuage moelleux, offrant des vues célestes et une atmosphère magique.');
+
+INSERT INTO chambre_hotel (id_hotel, id_chambre) VALUES 
+(1, 1), -- Hôtel Batcave avec Chambre de la Batcave
+(1, 11), -- Hôtel Batcave avec Chambre de la Batcave Deluxe
+(2, 2), -- Hôtel Cathédrale avec Chambre de la Cathédrale
+(2, 12), -- Hôtel Cathédrale avec Chambre Renaissance
+(3, 3), -- Hôtel Big Kids avec Chambre Big Kids
+(3, 13), -- Hôtel Big Kids avec Chambre Jungle
+(4, 4), -- Hôtel Treehouse avec Chambre dans un arbre
+(4, 14), -- Hôtel Treehouse avec Chambre Nautique
+(5, 5), -- Hôtel Subaquatique avec Chambre sous-marine
+(5, 15), -- Hôtel Subaquatique avec Chambre Panoramique
+(6, 6), -- Hôtel Cliffside avec Chambre Cliffside
+(6, 16), -- Hôtel Cliffside avec Chambre Extraterrestre
+(7, 7), -- Hôtel Spatiale avec Chambre spatiale
+(7, 17), -- Hôtel Spatiale avec Chambre Lave
+(8, 8), -- Hôtel Volcanique avec Chambre volcanique
+(8, 18), -- Hôtel Volcanique avec Chambre de Cristal
+(9, 9), -- Hôtel Iceberg avec Chambre de glace
+(9, 19), -- Hôtel Iceberg avec Chambre Igloo
+(10, 10), -- Hôtel Céleste avec Chambre céleste
+(10, 20); -- Hôtel Céleste avec Chambre Arc-en-ciel
