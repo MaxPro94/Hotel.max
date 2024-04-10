@@ -11,6 +11,7 @@ if (isset($_SESSION['user_id'])) {
                 'id_chambre' => $id_chambre
             ]);
             $resultat_chambre = $requete_chambre->fetch();
+            $title = $resultat_chambre['nom'];
 
 
             $requete_hotel = $maDB->prepare("SELECT * FROM hotel WHERE id_hotel = :id_hotel");

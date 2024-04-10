@@ -5,17 +5,20 @@
             <div class="col-6">
                 <div class="card my-3 mx-5" style="max-width: 800px;">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="<?= $chambre['photo'] ?>" class="img-fluid rounded-start" alt="...">
+                        <div class="col-md-6">
+                            <img src="<?= $chambre['photo'] ?>" class="img-fluid rounded" alt="...">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $chambre['nom'] ?></h5>
                                 <p class="card-text"><small class="text-muted"><?= $chambre['prix'] ?> €</small></p>
-                                <a class="btn btn-dark mt-4">Réserver</a>
+                                <p class="card-text"> <?= $chambre['description'] ?></p>
+
                             </div>
+
                         </div>
                     </div>
+                    <a class="btn btn-dark mt-2" href="?page=reservation_chambre&id_hotel=<?= $chambre['id_hotel'] ?>&id_chambre= <?= $chambre['id_chambre'] ?>">Réserver</a>
                 </div>
 
             </div>

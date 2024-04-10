@@ -37,22 +37,29 @@ submit_date.addEventListener("click", function(){
                 })
                 .then(function(resultats){
 
-                    resultats.forEach(resultat => {
 
-                        let date_debut_reservation = new Date(resultat.date_start); // Pour calculer des dates nous sommes apprement obligé de les transformer en objet
-                        let date_fin_reservation = new Date(resultat.date_end);
+                    if(resultats){
+                        resultats.forEach(resultat => {
+                            let date_debut_reservation = new Date(resultat.date_start); // Pour calculer des dates nous sommes apprement obligé de les transformer en objet
+                            let date_fin_reservation = new Date(resultat.date_end);
+    
+                            if(start_value.getTime() < date_debut_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() < date_fin_reservation.getTime() || start_value.getTime() > date_debut_reservation.getTime() && start_value.getTime() < date_fin_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() > date_fin_reservation.getTime() || start_value.getTime() > date_debut_reservation.getTime() && start_value.getTime() < date_fin_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() < date_fin_reservation.getTime() || start_value.getTime() === date_debut_reservation.getTime() && end_value.getTime() === date_fin_reservation.getTime() || start_value.getTime() < date_debut_reservation.getTime() && end_value.getTime() > date_fin_reservation.getTime()){
+                                aff_resultat.innerHTML = "";
+                                document.querySelector('#error').innerHTML = "Les dates choisies entrent en conflit avec d'autres réservations, veuillez les modifier."
+                                document.querySelector('#validation').innerHTML = ""
+                               // document.querySelector('#erreur_php').innerHTML =""
+                            } else {
+                               // document.querySelector('#erreur_php').innerHTML =""
+                                document.querySelector('#error').innerHTML = ""
+                                document.querySelector('#validation').innerHTML = "Les dates demandées sont disponibles."
+                            }
+                            
+                        });
+                    } else {
+                        document.querySelector('#error').innerHTML = ""
+                        document.querySelector('#validation').innerHTML = "Les dates demandées sont disponibles."
+                    }
 
-                        if(start_value.getTime() < date_debut_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() < date_fin_reservation.getTime() || start_value.getTime() > date_debut_reservation.getTime() && start_value.getTime() < date_fin_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() > date_fin_reservation.getTime() || start_value.getTime() > date_debut_reservation.getTime() && start_value.getTime() < date_fin_reservation.getTime() && end_value.getTime() > date_debut_reservation.getTime() && end_value.getTime() < date_fin_reservation.getTime() || start_value.getTime() === date_debut_reservation.getTime() && end_value.getTime() === date_fin_reservation.getTime() || start_value.getTime() < date_debut_reservation.getTime() && end_value.getTime() > date_fin_reservation.getTime()){
-                            aff_resultat.innerHTML = "";
-                            document.querySelector('#error').innerHTML = "Les dates choisies entrent en conflit avec d'autres réservations, veuillez les modifier."
-                            document.querySelector('#validation').innerHTML = ""
-                           // document.querySelector('#erreur_php').innerHTML =""
-                        } else {
-                           // document.querySelector('#erreur_php').innerHTML =""
-                            document.querySelector('#error').innerHTML = ""
-                            document.querySelector('#validation').innerHTML = "Les dates demandées sont disponibles."
-                        }
-                    });
                 })
             }
         

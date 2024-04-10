@@ -1,6 +1,7 @@
 <div class="container">
     <h1 class="mt-5">La <?= $resultat_chambre['nom'] ?></h1>
     <h5><?= $resultat_hotel['nom'] ?></h5>
+    <img src="<?= $resultat_hotel['photo'] ?>" alt="" class="img-fluid" width="200">
 
     <div class="row">
         <div class="col-12 col-md-6">
@@ -16,10 +17,9 @@
         <span class="text-danger" id="error"></span>
         <span class="text-success" id="validation"></span>
     </div>
-
+    <hr>
     <div class="row">
         <div class="col-12">
-
             <?php if (isset($_SESSION['user_id'])) : ?>
                 <table class="table mt-4 text-black">
                     <thead>
@@ -58,8 +58,8 @@
             <?php endif; ?>
             <div class="text-end mt-4">
                 <input type="hidden" name="chambre" id="id_chambre" value="<?= $id_chambre ?>"></input>
-                <button type="button" id="valid_date" class="btn btn-lg btn-primary mx-2 mb-5">Verifier les dates</button>
-                <button type="submit" name="submit_reserv" class="btn btn-lg btn-primary mb-5">Valider la reservation</button>
+                <button type="button" id="valid_date" class="btn btn-lg btn-warning mx-2 mb-5">Verifier les dates</button>
+                <button type="submit" name="submit_reserv" class="btn btn-lg btn-dark mb-5">Valider la reservation</button>
             </div>
             </form>
         </div>

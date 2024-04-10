@@ -1,5 +1,6 @@
 <?php
 session_start();
+$title = 'Mes reservations';
 if (isset($_GET['page'])) {
     if (isset($_SESSION['user_id'])) {
         $requete_reserv = $maDB->prepare("SELECT * FROM reservation WHERE id_utilisateur = :id_utilisateur ORDER BY id_reservation");
